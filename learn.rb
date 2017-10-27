@@ -1,5 +1,5 @@
-require './dataset_reader.rb'
 require 'pycall/import'
+require './dataset_reader.rb'
 
 include PyCall::Import
 pyfrom :'sklearn.ensemble', import: :RandomForestClassifier
@@ -26,11 +26,14 @@ classification_score = clf.score(test_images,test_labels)
 puts "Prediction score for Random Forest classifier #{(classification_score*100).round(2)}%"
 
 # Do a prediction for one sample
-sample = 123
-puts "Prediction #{clf.predict([test_images[sample]])} - Correct label: #{test_labels[sample]}"
-# Reshape back to 2 dimmensions and print
-reshaped = test_images[sample].each_slice(28).to_a
-puts test_labels[sample]
-reshaped.each do |r|
-  puts r.inspect
-end
+sample = 8
+puts clf.predict([test_images[sample]])
+puts clf.predict_proba([test_images[sample]])
+puts "Correct label: #{test_labels[sample]}"
+
+# Reshape back to 2 dimmensions and print to console
+#reshaped = test_images[sample].each_slice(rows).to_a
+#puts test_labels[sample]
+#reshaped.each do |r|
+#  puts r.inspect
+#end
