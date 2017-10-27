@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    pycall (1.0.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pycall
+
+BUNDLED WITH
+   1.15.4
